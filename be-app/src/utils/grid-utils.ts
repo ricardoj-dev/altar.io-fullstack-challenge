@@ -1,4 +1,18 @@
-export let currentMatrix: string[][] = [];
+type MatrixPosition = {
+  row: number;
+  column: number;
+};
+
+let currentMatrix: string[][] = [];
+let currentCode: string = '';
+
+export function getMatrix(): string[][] {
+  return currentMatrix;
+}
+
+export function getCode(): string {
+  return currentCode;
+}
 
 export function generateRandomMatrix(): string[][] {
   const matrix: string[][] = [];
@@ -61,11 +75,6 @@ export function generateMatrixWithBias(bias: string): string[][] {
   return matrix;
 }
 
-type MatrixPosition = {
-  row: number;
-  column: number;
-};
-
 export function generateCode(): string {
   const currentTime = _getCurrentTime();
   const seconds = currentTime.split(':')[2];
@@ -88,7 +97,9 @@ export function generateCode(): string {
   const firstCharacterOccurrences = _numberOfOccurrences(firstCharacter);
   const secondCharacterOccurrences = _numberOfOccurrences(secondCharacter);
 
-  return `${_processOccurrence(firstCharacterOccurrences)}${_processOccurrence(secondCharacterOccurrences)}`;
+  currentCode = `${_processOccurrence(firstCharacterOccurrences)}${_processOccurrence(secondCharacterOccurrences)}`;
+
+  return currentCode;
 }
 
 function _getCurrentTime(): string {
