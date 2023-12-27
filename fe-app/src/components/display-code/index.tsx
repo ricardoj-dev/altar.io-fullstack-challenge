@@ -1,6 +1,6 @@
 import { useFullStackChallengeStore } from "@/store";
 
-const Footer = () => {
+const DisplayCode = () => {
   const code = useFullStackChallengeStore((state) => state.code);
 
   return (
@@ -16,4 +16,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default DisplayCode;
