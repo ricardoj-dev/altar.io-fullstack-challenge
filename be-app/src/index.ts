@@ -2,7 +2,7 @@ import express, { Express } from 'express';
 
 import appCors from '@/src/libs/cors/app-cors';
 
-import exerciseRoutes from '@/routes/api/exercise';
+import exerciseRoutes from '@/src/routes/api/exercise';
 
 // - Express settings
 const app: Express = express();

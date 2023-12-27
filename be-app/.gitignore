@@ -20,8 +20,8 @@ logs
 coverage
 
 # API keys and secrets
-.env.development
-.env.production
+#.env.development
+#.env.production
 
 # Dependency directory
 node_modules
