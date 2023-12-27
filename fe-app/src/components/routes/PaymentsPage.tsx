@@ -1,5 +1,15 @@
+import DisplayCode from "@/components/display-code";
+import Form from "@/components/payments-page/form";
+import Table from "@/components/payments-page/table";
+
 const PaymentsPage = () => {
-  return <div>PaymentsPage</div>;
+  return (
+    <>
+      <DisplayCode />
+      <Form />
+      <Table />
+    </>
+  );
 };
 
 export default PaymentsPage;
