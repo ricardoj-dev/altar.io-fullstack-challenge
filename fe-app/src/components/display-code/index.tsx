@@ -1,7 +1,32 @@
+import { useEffect, useRef } from "react";
+import { getMatrixData } from "@/client/matrix-client";
 import { useFullStackChallengeStore } from "@/store";
 
 const DisplayCode = () => {
+  let timer: any;
+  const biasRef = useRef("");
   const code = useFullStackChallengeStore((state) => state.code);
+  const updateCharacters = useFullStackChallengeStore(
+    (state) => state.updateCharacters
+  );
+  const updateCode = useFullStackChallengeStore((state) => state.updateCode);
+
+  const getData = async () => {
+    const { matrixData, codeData } = await getMatrixData(biasRef.current);
+
+    updateCharacters(matrixData.newCharacters);
+    updateCode(codeData.newCode);
+  };
+
+  useEffect(() => {
+    timer = setInterval(async () => {
+      await getData();
+    }, 2000);
+
+    return function cleanUp() {
+      clearInterval(timer);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col items-center gap-2">
