@@ -1,9 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { getMatrixData } from "@/client/matrix-client";
 import { useFullStackChallengeStore } from "@/store";
 
 const GenerateButton = () => {
-  let timer: any;
   const biasRef = useRef("");
   const bias = useFullStackChallengeStore((state) => state.bias);
   const updateCharacters = useFullStackChallengeStore(
@@ -26,16 +25,6 @@ const GenerateButton = () => {
       console.error("Error in fetching data:", error);
     }
   };
-
-  useEffect(() => {
-    timer = setInterval(async () => {
-      await getData();
-    }, 2000);
-
-    return function cleanUp() {
-      clearInterval(timer);
-    };
-  }, []);
 
   return (
     <button
