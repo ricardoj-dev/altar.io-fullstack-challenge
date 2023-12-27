@@ -1,13 +1,14 @@
 import { Router } from 'express';
 
 import { ApiRouter } from '@/types/api.types';
+import generateCodeRoute from './generate-code';
+import generateMatrixRoute from './generate-matrix';
 
 const router = Router();
 
-// - Routes
-router.get('/', (req, res) => {
-  res.send('Hello, TypeScript with Express!');
-});
+// - Exercise 1 Routes
+router.use(generateCodeRoute);
+router.use(generateMatrixRoute);
 
 const exerciseRoutes: ApiRouter = {
   router: router,
