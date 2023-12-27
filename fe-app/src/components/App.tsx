@@ -1,10 +1,15 @@
+import Container from "@/components/layout/Container";
+import Header from "@/components/generator-page/header/index.tsx";
+import Grid from "@/components/generator-page/grid/index.tsx";
+import Footer from "@/components/generator-page/footer/index.tsx";
+
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline text-center bg-red-400">
-        Hello world!
-      </h1>
-    </>
+    <Container>
+      <Header />
+      <Grid />
+      <Footer />
+    </Container>
   );
 }
 
